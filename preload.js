@@ -12,3 +12,37 @@
 // 		replaceText(`${dependency}-version`, process.versions[dependency]);
 // 	}
 // });
+
+// LOADER =========================================================
+// window.addEventListener('beforeunload ', () => {
+// 	const loader = document.getElementById('loader');
+// 	loader.style.display = 'none';
+
+// 	setTimeout(() => {
+// 		loader.classList.add('fadeOut');
+// 		setTimeout(() => {
+// 			loader.style.display = 'block';
+// 		});
+// 	}, 1000);
+// });
+// LOADER =========================================================
+
+window.addEventListener('DOMContentLoaded', () => {
+	const fileListDiv = document.getElementById('fileList');
+	fileListDiv.addEventListener('dragover', (event) => event.preventDefault());
+	fileListDiv.addEventListener('drop', handleFileDrop);
+
+	const fileInput = document.getElementById('fileInput');
+	fileInput.addEventListener('change', handleFileSelect);
+});
+
+function handleFileDrop(event) {
+	event.preventDefault();
+	const file = event.dataTransfer.files[0];
+	ipcRenderer.send('uploadFile', file.path);
+}
+
+function handleFileSelect(event) {
+	const file = event.target.files[0];
+	ipcRenderer.send('uploadFile', file.path);
+}

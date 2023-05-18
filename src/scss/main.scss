@@ -13,14 +13,17 @@
 // топбар
 @import "./blocks/topbar.scss";
 
+// основной контент app
+@import "./blocks/app-content.scss";
+
+@import"./blocks/loader.scss";
+
 // бургер в топбаре
 // @import "./blocks/burger.scss";
 
 // меню
 @import "./blocks/tabs.scss";
 
-// основной контент app
-@import "./blocks/app-content.scss";
 
 /*  -------------------  */
 html,

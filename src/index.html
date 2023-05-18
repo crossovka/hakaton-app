@@ -10,18 +10,26 @@
 
 	<link rel="stylesheet" href="./style/main.css">
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> -->
 </head>
 
 <body>
+	<!-- <div class="loader fadeOut" style="display: none;">
+		<div class="loader-inner">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div> -->
 	<div class="app">
 		<div class="top-bar">
 			<div class="top-bar__drag-zone">
 				<div class="top-bar__title-bar">
 					<div class="title-bar__logo" draggable="false">
-						<img src="./icons/logo.svg" alt="логотип" id="icon" draggable="false">
+						<img src="./icons/logo.webp" alt="логотип" id="icon" draggable="false">
 					</div>
 					<span class="title-bar__title" id="result">undefiend</span>
 				</div>
@@ -52,6 +60,13 @@
 				</nav>
 				<div class="tabs__body">
 					<div id="tab_01" class="tabs__block">
+						<!-- <div class="content__file-list" id="fileList" ondrop="handleFileDrop(event)">
+							<input type="file" id="fileInput" class="tab__btn">
+						</div> -->
+						<div class="file-list" id="fileList">
+							<input type="file" id="fileInput">
+							<!-- File list content -->
+						</div>
 						Первая вкладка. Lorem ipsum, dolor sit amet consectetur
 						adipisicing elit. Enim laudantium esse modi aut in recusandae
 						explicabo, doloremque animi sapiente hic nobis ducimus minima
@@ -71,14 +86,16 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script src="../preload.js"></script>
 
-	<script src="../src/jquery/jquery-3.6.1.min.js"></script>
+	<!-- <script src="./js/loader.js"></script> -->
+
+	<!-- <script src="../src/jquery/jquery-3.6.1.min.js"></script> -->
 
 	<script src="../src/js/app.functions.js"></script>
 
-	<script src="../render.js"></script>
+	<!-- <script src="../render.js"></script> -->
 
 	<!-- <script src="../src/js/dark_mode.js"></script> -->
 	<!-- <script src="../src/js/burger.js"></script> -->

@@ -28,13 +28,21 @@
 		justify-content: center;
 		align-items: center;
 
-		color: $secondary-f-color;
+		color: $primary-f-color;
 		text-decoration: none;
 		text-transform: uppercase;
 
 		span {
 			position: relative;
 			z-index: $ui-index-2;
+		}
+
+		transition: all 0.3s ease-in-out;
+		&:nth-child(1):hover{
+			background-color: #eb8698;
+		}
+		&:nth-child(2):hover{
+			background-color: #9278aa;
 		}
 	}
 
@@ -52,7 +60,7 @@
 		display: none;
 		&:target {
 			display: block;
-			height: calc(100vh - 87px);
+			height: calc(100vh - 86px);
 		}
 
 		&::before {
