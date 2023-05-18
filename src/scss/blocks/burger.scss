@@ -1,0 +1,50 @@
+.title-bar__burger {
+	display: block;
+	width: 30px;
+	height: 20px;
+	cursor: pointer;
+	z-index: 3;
+	position: relative;
+}
+.title-bar__burger span {
+	position: absolute;
+	background-color: aliceblue;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	top: 9px;
+	-webkit-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.title-bar__burger:after,
+.title-bar__burger:before {
+	content: "";
+	background-color: aliceblue;
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	left: 0;
+	-webkit-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.title-bar__burger:before {
+	top: 0;
+}
+.title-bar__burger:after {
+	bottom: 0;
+}
+.title-bar__burger.active:before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: 9px;
+}
+.title-bar__burger.active:after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	bottom: 9px;
+}
+.title-bar__burger.active span {
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}

@@ -1,0 +1,51 @@
+// обнуление
+@import "./null.scss";
+
+// @import "containers.scss";
+
+@import "./vars.scss";
+
+@import "./mixins.scss";
+
+/*  -------------------  */
+// блоки
+
+// топбар
+@import "./blocks/topbar.scss";
+
+// бургер в топбаре
+// @import "./blocks/burger.scss";
+
+// меню
+@import "./blocks/sidenav.scss";
+
+// основной контент app
+@import "./blocks/app-content.scss";
+
+/*  -------------------  */
+html,
+body {
+	font-family: $font-family;
+	font-size: 18px;
+	// 1 rem
+	color: $primary-f-color;
+	background-color: $main-bgc-color;
+}
+.app {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+
+	width: 100%;
+	height: 100%;
+
+	border: 2px solid $border-color;
+
+	-webkit-box-sizing: border-box;
+
+	// margin-top: 32px;
+	// padding: 20px;
+
+	overflow-y: auto;
+	overflow: hidden;
+}

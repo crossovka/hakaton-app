@@ -1,0 +1,109 @@
+@import "./vars.scss";
+// это может быть полезно, чтобы не задавать $ui-step и $maxWidth в этом файле
+
+// =============================================  СТИЛИЗАЦИЯ ПРОКРУТКИ =============================================
+@mixin scrollbar($scrollbar-width, $thumb-color, $track-color) {
+	&::-webkit-scrollbar {
+		width: #{$scrollbar-width} + px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: $track-color;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $thumb-color;
+	}
+
+	// firefox
+	& {
+		@if ($scrollbar-width == 0) {
+			scrollbar-width: none;
+			// приблизительное значение
+		} @else if ($scrollbar-width < 19) {
+			scrollbar-width: thin;
+		} @else {
+			scrollbar-width: auto;
+		}
+		scrollbar-color: $thumb-color $track-color;
+	}
+}
+// Пример использования
+// html {
+// 	@include scrollbar(12, lighten($primary, 25), $gray500);
+// }
+
+// =============================================  ОТСУПЫ ПО ДИЗАЙНЕРСКОМУ ШАГУ =============================================
+// ui step --------------------------------
+// дизайнеры задают размеры на основе системы шагов
+$ui-step: 4px;
+
+@mixin ui-space($sides, $size) {
+	@each $side in $sides {
+		@if ($side == top) {
+			margin-top: $ui-step * $size;
+		}
+
+		@if ($side == bottom) {
+			margin-bottom: $ui-step * $size;
+		}
+
+		@if ($side == left) {
+			margin-left: $ui-step * $size;
+		}
+
+		@if ($side == right) {
+			margin-right: $ui-step * $size;
+		}
+		@if ($direction == all) {
+			margin: $ui-step * $size;
+		}
+	}
+}
+// .element {
+// 	// Отступ справа на 16 пикселей
+// 	@include ui-space((right), 4);
+// }
+// .another-element {
+// 	// Отступ сверху и снизу на 8 пикселей
+// 	@include ui-space((top, bottom), 2);
+// }
+
+// =============================================  АДАПТИВНЫЙ ШРИФТ =============================================
+$maxWidth: 1306; // ширина полотна по макету
+
+@mixin adaptive-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$addMobSize: $addSize + $addSize * 0.7;
+
+	@media (max-width: 767px) {
+		font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / (#{$maxWidth} - 320)));
+	}
+
+	@media (min-width: 768px) {
+		font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+	}
+}
+
+// @include adaptive-font(40, 25);
+
+// @mixin adaptive-font($pcSize, $mobSize) {
+// 	$addSize: $pcSize - $mobSize;
+// 	$addMobSize: $addSize + $addSize * 0.7;
+// 	@media (max-width: 767px) {
+// 		font-size: calc(#{$mobSize + px} + #{$addMobSize}* ((100vw- 320px) / #{$maxWidth}));
+// 	}
+// 	@media (min-width: 767px) {
+// 		font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+// 	}
+// }
+
+// ============================================= ПРОЗРАЧНОСТЬ ЭЛЕМЕНТА =============================================
+@mixin ui-opacity($value) {
+	$opacity-step: 1 / 10; // Локальная переменная $opacity-step	// $opacity-step: 0.1;
+
+	opacity: $value * $opacity-step;
+}
+// .my-element {
+// 	@include ui-opacity(5);	Это применит opacity в 0.5 (5 * 0.1) к элементу с классом .my-element.
+// }

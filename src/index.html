@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+	<title>undefined app</title>
+
+	<link rel="stylesheet" href="./style/main.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="app">
+		<div class="top-bar">
+			<div class="top-bar__drag-zone">
+				<div class="top-bar__title-bar">
+					<div class="title-bar__logo" draggable="false">
+						<img src="./icons/logo.svg" alt="логотип" id="icon" draggable="false">
+					</div>
+					<span class="title-bar__title" id="result">undefiend</span>
+				</div>
+				<div class="top-bar__btns">
+					<button id="minimizeBtn" class="btns__top-btn btns__minimize-btn">
+						<img class="btns__icon"
+							srcset="./icons/min-w-10.png 1x, icons/min-w-12.png 1.25x, icons/min-w-15.png 1.5x, icons/min-w-15.png 1.75x, icons/min-w-20.png 2x, icons/min-w-20.png 2.25x, icons/min-w-24.png 2.5x, icons/min-w-30.png 3x, icons/min-w-30.png 3.5x"
+							draggable="false" />
+					</button>
+					<button id="maxResBtn" class="btns__top-btn btns__maximize-btn">
+						<img class="btns__icon"
+							srcset="icons/max-w-10.png 1x, icons/max-w-12.png 1.25x, icons/max-w-15.png 1.5x, icons/max-w-15.png 1.75x, icons/max-w-20.png 2x, icons/max-w-20.png 2.25x, icons/max-w-24.png 2.5x, icons/max-w-30.png 3x, icons/max-w-30.png 3.5x"
+							draggable="false" />
+					</button>
+					<button id="closeBtn" class="btns__top-btn btns__close-btn">
+						<img class="btns__icon"
+							srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x"
+							draggable="false" />
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="app-content">
+			<div class="sidenav">
+				<div class="sidenav__container">
+					<div class="sidenav__tab">
+						<button class="tab__btn" id="uploadButton">Загрузит файлы</button>
+					</div>
+					<div class="sidenav__content">
+						<input type="file" id="fileInput" class="tab__btn">
+						<div class="content__file-list" id="fileList"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="../preload.js"></script>
+
+	<script src="../src/jquery/jquery-3.6.1.min.js"></script>
+
+	<script src="../src/js/app.functions.js"></script>
+
+	<script src="../render.js"></script>
+
+	<!-- <script src="../src/js/dark_mode.js"></script> -->
+	<!-- <script src="../src/js/burger.js"></script> -->
+</body>
+
+</html>
