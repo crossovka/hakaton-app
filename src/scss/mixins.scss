@@ -38,35 +38,29 @@
 // дизайнеры задают размеры на основе системы шагов
 $ui-step: 4px;
 
-@mixin ui-space($sides, $size) {
-	@each $side in $sides {
-		@if ($side == top) {
-			margin-top: $ui-step * $size;
-		}
+@mixin ui-space($direction, $size) {
+	@if ($direction == top) {
+		margin-top: $ui-step * $size;
+	}
 
-		@if ($side == bottom) {
-			margin-bottom: $ui-step * $size;
-		}
+	@if ($direction == bottom) {
+		margin-bottom: $ui-step * $size;
+	}
 
-		@if ($side == left) {
-			margin-left: $ui-step * $size;
-		}
+	@if ($direction == left) {
+		margin-left: $ui-step * $size;
+	}
 
-		@if ($side == right) {
-			margin-right: $ui-step * $size;
-		}
-		@if ($direction == all) {
-			margin: $ui-step * $size;
-		}
+	@if ($direction == right) {
+		margin-right: $ui-step * $size;
 	}
 }
 // .element {
-// 	// Отступ справа на 16 пикселей
-// 	@include ui-space((right), 4);
-// }
-// .another-element {
-// 	// Отступ сверху и снизу на 8 пикселей
-// 	@include ui-space((top, bottom), 2);
+// 	// это отступ в 8 пикселей сверзу
+// 	@include ui-space(top, 2);
+
+// 	// это 40 px (миксин-множитель)
+// 	height: $ui-step * 10;
 // }
 
 // =============================================  АДАПТИВНЫЙ ШРИФТ =============================================

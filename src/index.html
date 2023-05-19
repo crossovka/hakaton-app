@@ -16,14 +16,14 @@
 </head>
 
 <body>
-	<!-- <div class="loader fadeOut" style="display: none;">
+	<div class="loader" id="loader">
 		<div class="loader-inner">
 			<span></span>
 			<span></span>
 			<span></span>
 			<span></span>
 		</div>
-	</div> -->
+	</div>
 	<div class="app">
 		<div class="top-bar">
 			<div class="top-bar__drag-zone">
@@ -63,25 +63,54 @@
 						<!-- <div class="content__file-list" id="fileList" ondrop="handleFileDrop(event)">
 							<input type="file" id="fileInput" class="tab__btn">
 						</div> -->
-						<div class="file-list" id="fileList">
+
+						<!-- <div class="block__file-input" id="fileList">
 							<input type="file" id="fileInput">
-							<!-- File list content -->
+						</div> -->
+						<form method="post" enctype="multipart/form-data" id="fileList" class="tabs__block-form">
+							<label class="input-file">
+								<input type="file" name="file" id="fileInput">
+								<!-- <span>Выберите файл</span> -->
+							</label>
+						</form>
+						<div class="block__block-content">
+							<div class="block-content__count">
+								<b>Всего последовательностей было:</b>
+								<div class="block-content__dash"></div>
+								<span id="amountOfSequences">21313122</span>
+							</div>
+							<div class="block-content__count">
+								<b>Средняя реактивность:</b>
+								<div class="block-content__dash"></div>
+								<span id="averageReactivity">21313122</span>
+							</div>
 						</div>
-						<div id="huy"></div>
-						Первая вкладка. Lorem ipsum, dolor sit amet consectetur
-						adipisicing elit. Enim laudantium esse modi aut in recusandae
-						explicabo, doloremque animi sapiente hic nobis ducimus minima
-						distinctio deleniti tempora deserunt cumque amet consequatur.
 					</div>
 					<div id="tab_02" class="tabs__block">
-						Вторая вкладка. Lorem ipsum, dolor sit amet consectetur
-						adipisicing elit. Enim laudantium esse modi aut in recusandae
-						explicabo, doloremque animi sapiente hic nobis ducimus minima
-						distinctio deleniti tempora deserunt cumque amet consequatur.
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-						laudantium esse modi aut in recusandae explicabo, doloremque animi
-						sapiente hic nobis ducimus minima distinctio deleniti tempora
-						deserunt cumque amet consequatur.
+						<div class="block__tooltip-wrap">
+							<div class="tooltip-wrap__tooltip-item">
+								<div class="tooltip-item__title" id="showTooltipBtn">
+									<!-- <img class="tooltip-item__icon" src="./icons/arrow.svg" alt="стрелочка развернуть" id="showTooltipBtn"> -->
+									<span>текст 3</span>
+								</div>
+								<div class="tooltip-item__text" id="tooltipText">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+									unde iste itaque aliquid reiciendis aspernatur. Cum nulla est optio similique?
+									Ea cumque, adipisci nesciunt debitis dolorem hic eligendi eaque expedita.
+								</div>
+							</div>
+							<div class="tooltip-wrap__tooltip-item">
+								<div class="tooltip-item__title" id="showTooltipBtn">
+									<!-- <img class="tooltip-item__icon" src="./icons/arrow.svg" alt="стрелочка развернуть" id="showTooltipBtn"> -->
+									<span>текст 2</span>
+								</div>
+								<div class="tooltip-item__text" id="tooltipText">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+									unde iste itaque aliquid reiciendis aspernatur. Cum nulla est optio similique?
+									Ea cumque, adipisci nesciunt debitis dolorem hic eligendi eaque expedita.
+								</div>
+							</div>	
+						</div>
 					</div>
 				</div>
 			</div>
@@ -89,6 +118,7 @@
 	</div>
 
 	<script src="../src/js/app.functions.js"></script>
+	<script src="../src/js/showFileName.js"></script>
 </body>
 
 </html>

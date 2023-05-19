@@ -1,6 +1,7 @@
 .app-content {
+	@include ui-space(top, 8.15);
 	// padding: 20px;
-	overflow: hidden;
+	// overflow: hidden;
 	// font-family: $font-family;
 
 	max-height: 100%;

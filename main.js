@@ -1,6 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const { uploadHandler } = require('./src/js/huita.js');
+
+const { uploadHandler } = require('./src/js/stuff.js');
+// const { placeDataHtml } = require('./src/js/placeDataHtml.js');
 
 const ipc = ipcMain;
 
@@ -66,8 +68,12 @@ app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') app.quit();
 });
 
-
 ipc.on('uploadFile', uploadHandler);
+
+ipc.on('sequences', (event, data) => {
+	placeDataHtml();
+});
+
 // тут написать функцию для заполнения информации о файле
 // потом сделать экспорт этой функции перейти в хуиту
 //  а лучше сделать отдельный файл для функций заполеняющих
