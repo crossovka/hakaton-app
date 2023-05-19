@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const { spawn } = require('child_process');
+const { uploadHandler } = require('./src/js/huita.js');
 
 const ipc = ipcMain;
 
@@ -66,38 +66,8 @@ app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') app.quit();
 });
 
-ipcMain.on('uploadFile', (event, filePath) => {
-	const pythonScript = path.join(
-		__dirname,
-		'src',
-		'python_scripts',
-		'script.py'
-	);
-	const pythonProcess = spawn('python', [pythonScript, filePath]);
 
-	pythonProcess.on('error', (err) => {
-		console.error('Python script process error:', err);
-	});
-
-	let fileContent = '';
-
-	// Получаем абсолютный путь к файлу
-	const absolutePath = path.resolve(filePath);
-
-	// Проверяем, соответствует ли путь требуемому значению
-	if (absolutePath === 'C:\\code\\hakaton\\Training Pack\\set_minus.fas') {
-		console.log('Успешно');
-	}
-
-	pythonProcess.stdout.on('data', (data) => {
-		fileContent += data.toString();
-	});
-
-	pythonProcess.on('close', (code) => {
-		if (code !== 0) {
-			console.error(`Python script process exited with code ${code}`);
-			return;
-		}
-		event.sender.send('fileUploaded', fileContent);
-	});
-});
+ipc.on('uploadFile', uploadHandler);
+// тут написать функцию для заполнения информации о файле
+// потом сделать экспорт этой функции перейти в хуиту
+//  а лучше сделать отдельный файл для функций заполеняющих

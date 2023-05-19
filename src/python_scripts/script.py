@@ -1,28 +1,31 @@
-# import sys
-# import os
-
-# file_path = sys.argv[1]
-
-# # Проверка формата файла
-# file_extension = os.path.splitext(file_path)[1]
-# if file_extension not in ['.fas', '.fasta']:
-#     print('Недопустимый формат файла. Пожалуйста, загрузите файл в формате .fas или .fasta.')
-#     sys.exit(1)
-
-# # Обработка загруженного файла, например, чтение его содержимого
-# # и выполнение необходимых действий
-# # Результат можно вернуть в виде строки
-
-# with open(file_path, 'r') as file:
-#     file_content = file.read()
-
-# # Возвращение содержимого файла в главный процесс
-# print(file_content)
-
 import sys
+import json
 
-# Получаем путь к файлу из аргументов командной строки
-file_path = sys.argv[1]
+# Create a Python dictionary
+data = {
+    "name": "John Doe",
+    "age": 30,
+    "city": "New York"
+}
+# Convert the dictionary to JSON
+json_data = json.dumps(data)
 
-# Дальнейшая работа с путем файла
-# ...
+# Print the JSON data
+# print(json_data)
+
+
+def main():
+    # print("Hello World")
+    if len(sys.argv) > 1:
+        return str(sys.argv[1])
+    else:
+        return "No argument provided"
+
+
+if __name__ == "__main__":
+    arr = []
+    arr.append(json_data)
+    arr.append(json_data)
+    arr.append(json_data)
+    # print(main())
+    print(arr)
