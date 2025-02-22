@@ -18,5 +18,5 @@
 
 ## Скриншоты
 
-![alt text](./imgs/1.png)
-![alt text](./imgs/2.png)
+![alt text](./imgs/1.PNG)
+![alt text](./imgs/2.PNG)
